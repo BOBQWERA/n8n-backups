@@ -1,0 +1,106 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-03-16T15:42:39.557Z",
+  "id": "OmypL9YGxcazP0E1",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "98281a22-22a6-4e7a-9806-af556a30d24c",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        920,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "repository",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/BOBQWERA/aibeat",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "aibeat",
+          "mode": "name"
+        }
+      },
+      "id": "15f50eda-3b59-4850-a5dc-e331fc32c24b",
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        420
+      ],
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "Pv59AHrStcBloOPO",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "channel",
+        "operation": "replies",
+        "channelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "filters": {}
+      },
+      "id": "a0de1cbe-7ffa-40e3-be70-d7e0795f3446",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        1320,
+        420
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-03-17T01:40:20.000Z",
+  "versionId": "a024e9b9-ac55-4962-9a8f-d715a427eb6c"
+}
